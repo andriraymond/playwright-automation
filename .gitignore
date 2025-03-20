@@ -8,4 +8,4 @@ node_modules/
 
 # Other
 /test/research.spec.js
-# playwright.config.js
+playwright.config.js

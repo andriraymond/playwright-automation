@@ -14,5 +14,7 @@ test.only('User can login with valid credential', async ({ page }) => {
     
     // Homepage ~ Landing General
     await page.locator('#close-banner-promo').click();
+    // await page.getByRole('button', { name: 'Close' }).click();
+    await page.pause();
     
 });
