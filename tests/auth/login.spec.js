@@ -1,22 +1,27 @@
 import { test, expect } from '@playwright/test';
 
-    // DATA TEST
-    const phoneNumber   = '085174452288'
-    const password      = 'Qcaz123456'
+import { login } from '../../supports/auth';
 
-test('User can login with valid credential', async ({ page }) => {   
-    
-    //  OPEN BROWSER & NAVIGATE TO BASE URL
-    await page.goto('/login');
-    await expect(page).toHaveTitle(/Login/);
+test('User cannot login with empty phone and password', async ({ page }) => {
+    await login(page, '', '')
+});
 
-    // LOGIN PAGE - INPUT EMAIL/USERNAME AND PASSWORD
-    await page.fill('input[id="inpEmail"]', phoneNumber);
-    await page.fill('input[id="inpPassword"]', password);
-    await page.locator('#btnMasuk').click();
+test('User cannot login with empty phone', async ({ page }) => {
+    await login(page, '', 'Qcaz123456')
+});
 
-    // HOMEPAGE LANDING - VERIFY LOGIN SUCCES AND CLOSE BANNER PROMO POP UP
-    // await expect(page).toHaveTitle(/Home/);
-    // await page.locator('#close-banner-promo').click();
+test('User cannot login with empty password', async ({ page }) => {
+    await login(page, '085174452288', '')
+});
 
+test('User cannot login with wrong phone', async ({ page }) => {
+    await login(page, '085174452287', 'Qcaz123456')
+});
+
+test('User cannot login with wrong password', async ({ page }) => {
+    await login(page, '085174452288', 'Qcaz12345678')
+});
+
+test('User can login with valid credentials', async ({ page }) => {
+    await login(page, '085174452288', 'Qcaz12345678')
 });

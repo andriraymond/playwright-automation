@@ -80,6 +80,11 @@ Untuk menjalankan Playwright dalam mode UI, gunakan:
 ```bash
 npx playwright test --ui
 ```
+Or, to run the tests with a visible browser window without UI mode, use the --headed option:
+
+```bash
+npx playwright test --headed
+```
 
 ---
 
@@ -115,3 +120,6 @@ npx playwright show-report
 ```
 
 ---
+
+
+<!-- npm install --save-dev dotenv -->
