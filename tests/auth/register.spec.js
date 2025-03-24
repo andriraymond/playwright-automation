@@ -139,7 +139,8 @@ test('fails - unable to register with empty password confirmation', async ({ pag
     await register(page, 'Sugeng', '0011223301', '', 'Qatest123456', '', '')
     
     // VERIFY THAT WARNING ALERT IS APPEAR
-    const warningText = await page.locator('#passwordNotIdentical > .d-flex > .title-warning')
+    // const warningText = await page.locator('#passwordNotIdentical > .d-flex > .title-warning')
+    const warningText = await page.locator('#warningErrorText')
     await expect(warningText).toHaveText('Password tidak sama!')
 
 });
@@ -150,7 +151,8 @@ test('fails - unable to register with empty password confirmationl', async ({ pa
     await register(page, 'Sugeng', '0011223301', 'demo99@yopmail.com', 'Qatest123456', '', '')
 
     // VERIFY THAT WARNING ALERT IS APPEAR
-    const warningText = await page.locator('#passwordNotIdentical > .d-flex > .title-warning')
+    // const warningText = await page.locator('#passwordNotIdentical > .d-flex > .title-warning')
+    const warningText = await page.locator('#warningErrorText')
     await expect(warningText).toHaveText('Password tidak sama!')
 
 });

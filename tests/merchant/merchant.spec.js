@@ -1,7 +1,5 @@
 import { test, expect } from '@playwright/test';
 
-import { login } from '../../supports/auth';
-
 import { merchant } from '../../supports/merchant';
 
 const phoneNumber = '085374452288';

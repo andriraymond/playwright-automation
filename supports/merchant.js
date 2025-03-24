@@ -13,12 +13,13 @@ export const merchant = async (page, phoneNumber, password) => {
     
     // GO TO SELLER DASHBOARD
     await expect(await page.getByRole('banner').getByText('Jadi Penjual')).toBeVisible()
-    await page.getByRole('banner').getByText('Jadi Penjual').click()
-    await page.getByText('Publikasi produk gratis di $merchants$! Bergabung dan jangkau jutaan pelanggan!').click()
+    await page.getByRole('banner').getByText('Jadi Penjual').click();
+    await page.getByText('Bergabung dan jangkau jutaan').click();
 
     // // VERIFY THAT USER CAN ACCESS DASHBOARD
     await expect(page).toHaveTitle(/Seller/)
 
     await page.getByRole('navigation').getByText('kelola produk').click()
     await page.getByRole('navigation').getByText('daftar produk').click()
+    
 };

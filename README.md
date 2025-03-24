@@ -123,3 +123,7 @@ npx playwright show-report
 
 
 <!-- npm install --save-dev dotenv -->
+
+<!-- npm install -->
+
+<!-- npx playwright install --with-deps -->

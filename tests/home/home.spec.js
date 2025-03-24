@@ -1,18 +1,18 @@
-import { test, expect } from '@playwright/test';
+import { test, expect } from '@playwright/test'
 
-import { login } from '../auth/auth.helper';
+import { login } from '../../supports/auth'
 
     // DATA TEST
     // const phoneNumber   = '085174452288'
     // const password      = 'Qcaz123456'
 
-test.only('User can access homepage', async ({ page }) => {   
+test('User can access homepage', async ({ page }) => {   
     
     //  CALL THE LOGIN FUNCTIONAL
-    await login(page);
+    await login(page, '085374452288', 'Qcaz123456')
 
     // HOMEPAGE LANDING - VERIFY LOGIN SUCCES AND CLOSE HOMEPAGE POP UP
-    await expect(page).toHaveTitle(/Home/);
-    await page.locator('#close-banner-promo').click();
+    await expect(page).toHaveTitle(/Home/)
+    await page.locator('#close-banner-promo').click()
 
 });
