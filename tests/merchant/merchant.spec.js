@@ -6,7 +6,7 @@ import { screenshot } from '../../supports/screenshots'
 
 dotenv.config();
 
-test.only('User can access merchant landing' , async ({ page }, testInfo) => {
+test('User can access merchant landing' , async ({ page }, testInfo) => {
 
     // await merchant(page, '085174452288s', 'Qcaz123456')
     await merchant(page, process.env.USER_PHONE, process.env.USER_PASSWORD)
