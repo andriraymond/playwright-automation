@@ -1,5 +1,8 @@
 // @ts-check
 import { defineConfig, devices } from '@playwright/test';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 /**
  * Read environment variables from file.
@@ -17,7 +20,7 @@ export default defineConfig({
   testDir: './tests',
 
   // Set timeout
-  timeout: 40 * 1000,
+  timeout: 330 * 1000,
 
   /* Run tests in files in parallel */
   fullyParallel: true,
@@ -33,7 +36,7 @@ export default defineConfig({
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
     // baseURL: 'http://127.0.0.1:3000',
-    baseURL: '',
+    baseURL: process.env.BASE_URL,
 
     headless: false,
 

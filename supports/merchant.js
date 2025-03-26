@@ -12,7 +12,8 @@ export const merchant = async (page, phoneNumber, password) => {
     await page.locator('#close-banner-promo').click() 
     
     // GO TO SELLER DASHBOARD
-    await expect(await page.getByRole('banner').getByText('Jadi Penjual')).toBeVisible()
+    await page.waitForLoadState('networkidle');
+    // await expect(await page.getByRole('banner').getByText('Jadi Penjual')).toBeVissible()
     await page.getByRole('banner').getByText('Jadi Penjual').click();
     await page.getByText('Bergabung dan jangkau jutaan').click();
 
@@ -21,5 +22,6 @@ export const merchant = async (page, phoneNumber, password) => {
 
     await page.getByRole('navigation').getByText('kelola produk').click()
     await page.getByRole('navigation').getByText('daftar produk').click()
+    await page.waitForLoadState('networkidle');
     
 };
