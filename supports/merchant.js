@@ -8,6 +8,8 @@ export const merchant = async (page, phoneNumber, password) => {
     await login(page, phoneNumber, password)
 
     // HOMEPAGE LANDING - VERIFY LOGIN SUCCES AND CLOSE HOMEPAGE POP UP
+    // await page.waitForLoadState('networkidle');
+    await page.waitForLoadState('domcontentloaded');
     await expect(page).toHaveTitle(/Home/)
     await page.locator('#close-banner-promo').click() 
     
@@ -18,10 +20,11 @@ export const merchant = async (page, phoneNumber, password) => {
     await page.getByText('Bergabung dan jangkau jutaan').click();
 
     // // VERIFY THAT USER CAN ACCESS DASHBOARD
+    await page.waitForLoadState('domcontentloaded');
     await expect(page).toHaveTitle(/Seller/)
 
     await page.getByRole('navigation').getByText('kelola produk').click()
     await page.getByRole('navigation').getByText('daftar produk').click()
-    await page.waitForLoadState('networkidle');
+    // await page.waitForLoadState('networkidle');
     
 };

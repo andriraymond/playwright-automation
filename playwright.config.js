@@ -20,7 +20,7 @@ export default defineConfig({
   testDir: './tests',
 
   // Set timeout
-  timeout: 330 * 1000,
+  timeout: 120 * 1000,
 
   /* Run tests in files in parallel */
   fullyParallel: true,
@@ -38,7 +38,7 @@ export default defineConfig({
     // baseURL: 'http://127.0.0.1:3000',
     baseURL: process.env.BASE_URL,
 
-    headless: false,
+    headless: true,
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
