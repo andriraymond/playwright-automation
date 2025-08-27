@@ -38,7 +38,7 @@ export default defineConfig({
     // baseURL: 'http://127.0.0.1:3000',
     baseURL: process.env.BASE_URL,
 
-    headless: true,
+    headless: false,   /* true to hide and false to show UI */
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
